@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Login from "./pages/Login";
 import Main from "./pages/Main";
 import "./sass/app.scss";
 
@@ -13,7 +14,8 @@ const App = () => {
   //
   return (
     <>
-      <Main />
+      {/* <Main /> */}
+      <Login />
     </>
   )
 }
