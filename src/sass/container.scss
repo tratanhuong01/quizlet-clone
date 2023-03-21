@@ -1,0 +1,151 @@
+@import "./mixins.scss";
+
+//
+.container {
+    max-width: 102.4rem;
+    margin: auto;
+}
+
+.hover-text {
+    background-color: #ffffff;
+    position: absolute;
+    bottom: 100%;
+    color: #000000b8;
+    left: 50%;
+    font-weight: 500;
+    transform: translateX(-50%);
+    margin-bottom: 0.8rem;
+    padding: 0.4rem;
+    border-radius: 0.4rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    font-size: 1.1rem;
+    visibility: hidden;
+    transition: all 0.4s ease-in-out;
+    transition-delay: 0.5s;
+    opacity: 0;
+
+    &:hover {
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.line_border {
+    border-top: 0.1rem solid var(--color-text);
+    opacity: 0.2;
+}
+
+.relative {
+    position: relative;
+}
+
+.dot-red {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 100rem;
+    position: absolute;
+    top: -0.45rem;
+    right: -0.45rem;
+    background-color: red;
+    display: block;
+}
+
+
+.dot {
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 100rem;
+    display: block;
+}
+
+.dark {
+    & .main {
+        background-color: #00000067;
+    }
+}
+
+.main {
+    background-color: #eff2f6;
+}
+
+.content_ {
+    padding: 2rem 0rem;
+    display: flex;
+    gap: 3rem;
+}
+
+.loading__main {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(245, 244, 244, 0.7);
+    @include fixedFull();
+    @include flexCenter();
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.title__top {
+    font-weight: 700;
+    font-size: 3.2rem;
+    text-align: center;
+    margin: 7rem 0rem;
+}
+
+.main {
+    &__item {
+        display: flex;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 12rem;
+
+        &--content {
+            width: 50%;
+            padding: 1rem;
+
+            & button {
+                margin: 2rem 0rem;
+                width: auto;
+                padding: 2rem 2.8rem;
+                background-color: var(--color-main);
+                color: #ffffff;
+                font-size: 1.6rem;
+                font-weight: 500;
+
+                &:hover {
+                    background-color: var(--color-main-bold);
+                }
+            }
+
+            & p {
+                &:nth-child(1) {
+                    font-size: 2.8rem;
+                    font-weight: 700;
+                    margin-bottom: 5rem;
+                }
+
+                &:nth-child(2) {
+                    text-align: justify;
+                    font-size: 1.8rem;
+                    text-align: left;
+                }
+            }
+        }
+
+        & img {
+            width: 50%;
+            padding: 1rem;
+        }
+    }
+}

@@ -1,0 +1,86 @@
+@import "../../sass/mixins.scss";
+
+input {
+    padding: 1rem;
+    border: 0.1rem solid #DCDCDC;
+    border-radius: 0.4rem;
+    width: 100%;
+}
+
+input:focus {
+    border-color: #4255ff;
+    outline: none;
+}
+
+.input {
+    @include itemsCenter();
+    gap: 0.5rem;
+    width: 100%;
+    position: relative;
+
+    &__container {
+        width: 100%;
+        position: relative;
+    }
+
+    &.clear__text input {
+        padding-right: 1.6rem;
+    }
+
+    &.clear__text .icon {
+        font-size: 2.4rem;
+        position: absolute;
+        top: 50%;
+        cursor: pointer;
+        right: 1.2rem;
+        transform: translateY(-50%);
+    }
+
+    & button {
+        padding: 1rem;
+        height: 100%;
+        cursor: pointer;
+        border: none;
+        background-color: var(--color-main);
+        color: #ffffff;
+
+        &>i {
+            opacity: 0.9 !important;
+        }
+    }
+
+    & i {
+        font-size: 1.5rem;
+        opacity: 0.5 !important;
+    }
+
+    &__innerLeft {
+        & i {
+            @include absoluteLeft(1rem);
+        }
+
+        & input {
+            padding-left: 3.6rem !important;
+        }
+    }
+
+    &__innerRight {
+        & i {
+            @include absoluteRight(1rem);
+        }
+
+        & input {
+            padding-right: 3.6rem !important;
+        }
+    }
+
+    &__error {
+        color: red;
+        font-size: 1.3rem;
+        font-weight: 600;
+
+        &.active {
+            margin: 0.5rem;
+        }
+    }
+}

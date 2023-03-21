@@ -1,0 +1,47 @@
+button {
+    background-color: #fff;
+    padding: 0.8rem 1.6rem;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:focus {
+    outline: none;
+}
+
+.button {
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+
+    &.main {
+        margin: 1.2rem 0rem;
+        background-color: rgba(15, 111, 236, 0.1);
+        color: var(--color-main);
+
+        &:hover,
+        &.active {
+            background-color: var(--color-main);
+            color: #fff;
+
+            &:hover {
+                background-color: var(--color-main-bold);
+            }
+        }
+    }
+
+    &.delete {
+        background-color: rgb(254 226 226);
+        color: rgb(185 28 28);
+
+        &:hover {
+            background-color: rgb(254 202 202);
+        }
+    }
+}

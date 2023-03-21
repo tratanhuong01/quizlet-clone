@@ -1,0 +1,58 @@
+ @mixin flexCenter() {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ @mixin itemsCenter() {
+     display: flex;
+     align-items: center;
+ }
+
+ @mixin justifyCenter() {
+     display: flex;
+     justify-content: center;
+ }
+
+ @mixin flex($item : "unset", $justify : "unset") {
+     display: flex;
+     justify-content: $justify;
+     align-items: $item;
+ }
+
+ @mixin absoluteFull() {
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+ }
+
+ @mixin absoluteLeft($left : 0) {
+     position: absolute;
+     top: 50%;
+     left: $left;
+     transform: translateY(-50%);
+ }
+
+ @mixin absoluteRight($right : 0) {
+     position: absolute;
+     top: 50%;
+     right: $right;
+     transform: translateY(-50%);
+ }
+
+ @mixin absoluteTopCenter($top : 0) {
+     position: absolute;
+     top: $top;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+
+ @mixin fixedFull() {
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+ }

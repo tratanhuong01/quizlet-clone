@@ -1,0 +1,24 @@
+@import "../../sass/mixins.scss";
+
+.popover {
+    position: absolute;
+    top: 100%;
+    margin-top: 0.2rem;
+    right: 0;
+    padding: 1.4rem 0rem;
+    border-radius: 1.2rem !important;
+    padding: 1rem 0rem;
+    background-color: #fff;
+    border-radius: 0.4rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    &__container {
+        position: relative;
+    }
+
+    &.sub-menu {
+        top: 4.4rem;
+        left: 0;
+        display: flex;
+    }
+}

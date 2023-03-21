@@ -1,0 +1,23 @@
+$color-main : #4255ff;
+$color-main-bold : #423ed8;
+$color-text : #676a79;
+$font-family : 'Montserrat',
+sans-serif;
+$bg-gray : #eef0f2;
+
+// breakpoint
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;
+$breakpoint-xxl: 1440px;
+// breakpoint
+
+
+:root {
+    --font-family: #{$font-family};
+    --color-main : #{$color-main};
+    --color-text: #{$color-text};
+    --bg-gray: #{$bg-gray};
+    --color-main-bold: #{$color-main-bold};
+}
