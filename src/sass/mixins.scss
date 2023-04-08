@@ -9,6 +9,16 @@
      align-items: center;
  }
 
+ @mixin flexJustify($value) {
+     display: flex;
+     justify-content: $value;
+ }
+
+ @mixin flexItems($value) {
+     display: flex;
+     align-items: $value;
+ }
+
  @mixin justifyCenter() {
      display: flex;
      justify-content: center;
@@ -55,4 +65,97 @@
      left: 0;
      bottom: 0;
      right: 0;
+ }
+
+ @mixin fixedCenterScale($scale) {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) scale($scale);
+ }
+
+ @mixin absoluteCenter() {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+ }
+
+ @mixin fixedCenter() {
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+ }
+
+ @mixin max-sm {
+     @media all and (max-width: $breakpoint-sm) {
+         @content;
+     }
+ }
+
+ @mixin min-sm {
+     @media all and (min-width: $breakpoint-sm) {
+         @content;
+     }
+ }
+
+ @mixin max-md {
+     @media all and (max-width: $breakpoint-md) {
+         @content;
+     }
+ }
+
+ @mixin min-md {
+     @media all and (min-width: $breakpoint-md) {
+         @content;
+     }
+ }
+
+ @mixin max-lg {
+     @media all and (max-width: $breakpoint-lg) {
+         @content;
+     }
+ }
+
+ @mixin min-lg {
+     @media all and (min-width: $breakpoint-lg) {
+         @content;
+     }
+ }
+
+ @mixin max-xl {
+     @media all and (max-width: $breakpoint-xl) {
+         @content;
+     }
+ }
+
+ @mixin min-xl {
+     @media all and (min-width: $breakpoint-xl) {
+         @content;
+     }
+ }
+
+ @mixin max-xxl {
+     @media all and (max-width: $breakpoint-xxl) {
+         @content;
+     }
+ }
+
+ @mixin min-xxl {
+     @media all and (min-width: $breakpoint-xxl) {
+         @content;
+     }
+ }
+
+ @mixin max-ss($breakpoint) {
+     @media all and (max-width: $breakpoint) {
+         @content;
+     }
+ }
+
+ @mixin min-ss($breakpoint) {
+     @media all and (min-width: $breakpoint) {
+         @content;
+     }
  }

@@ -1,5 +1,6 @@
 //
 import { ReactNode } from "react"
+import Footer from "../components/Footer"
 import Header from "../components/Header"
 //
 type WrapperProps = {
@@ -13,6 +14,7 @@ const Wrapper = ({ children }: WrapperProps) => {
     <div className="main" style={{ height: "100vh" }}>
       <Header />
       {children}
+      <Footer />
     </div>
   )
 }

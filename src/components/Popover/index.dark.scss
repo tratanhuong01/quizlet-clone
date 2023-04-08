@@ -1,0 +1,7 @@
+@import "../../sass/mixins.scss";
+
+body.dark {
+    & .popover {
+        background-color: var(--color-main);
+    }
+}

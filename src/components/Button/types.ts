@@ -1,15 +1,15 @@
 import { ReactNode } from "react";
 
-type ButtonProp = {
+type ButtonProps = {
     link?: string,
     children?: ReactNode,
     type: "submit" | "button" | "reset",
-    handleClick?: (params: any) => {
-    },
+    handleClick?: (params: any) => void,
     params?: object,
     loading?: boolean,
     className?: string,
-    transition?: boolean
+    transition?: boolean,
+    disabled?: boolean
 };
 
-export default ButtonProp;
+export default ButtonProps;

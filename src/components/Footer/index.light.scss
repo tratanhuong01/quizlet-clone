@@ -1,0 +1,50 @@
+@import "../../sass/mixins.scss";
+
+.footer {
+    background-color: #f6f7fb;
+
+    &__top {
+        padding-top: 2rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        & ul {
+            & li {
+                &:nth-child(1) {
+                    font-weight: 700;
+                    font-size: 1.6rem;
+                }
+
+                font-size: 1.4rem;
+                padding: 1rem 0rem;
+            }
+        }
+    }
+
+    &__bottom {
+        padding-bottom: 2rem;
+
+        &--left {
+            & ul {
+                margin-bottom: 1rem;
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                & li {
+                    width: 3.6rem;
+                    height: 3.6rem;
+                    border-radius: 100rem;
+                    font-size: 1.6rem;
+                    background-color: var(--color-main-bold);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

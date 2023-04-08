@@ -1,0 +1,52 @@
+@import "../../sass/mixins.scss";
+
+
+#modal {
+    &.active {
+        visibility: visible;
+        overflow: hidden;
+    }
+
+    visibility: hidden;
+    @include fixedFull();
+    z-index: 9999999;
+
+    // &.active .modal {}
+
+    & .modal {
+        width: 100%;
+        left: 50%;
+        top: 45%;
+        @include justifyCenter();
+        position: fixed;
+        transform: translate(-50%, -50%);
+        z-index: 9999999;
+
+    }
+
+    & .modal {
+        &__container {
+            position: relative;
+        }
+
+        &__overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #000000c0;
+        }
+
+        &__close {
+            position: absolute;
+            top: 1rem;
+            right: 3rem;
+            font-weight: 500;
+            cursor: pointer;
+            z-index: 9999;
+            font-size: 4rem;
+            border-radius: 100rem;
+        }
+    }
+}

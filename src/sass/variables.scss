@@ -4,6 +4,9 @@ $color-text : #676a79;
 $font-family : 'Montserrat',
 sans-serif;
 $bg-gray : #eef0f2;
+$gray-light : #f6f7fb;
+$color-dark-main : #2e3856;
+$color-dark-main-bold : #0a092d;
 
 // breakpoint
 $breakpoint-sm: 640px;
@@ -19,5 +22,8 @@ $breakpoint-xxl: 1440px;
     --color-main : #{$color-main};
     --color-text: #{$color-text};
     --bg-gray: #{$bg-gray};
+    --gray-light: #{$gray-light};
     --color-main-bold: #{$color-main-bold};
+    --color-dark-main: #{$color-dark-main};
+    --color-dark-main-bold: #{$color-dark-main-bold};
 }

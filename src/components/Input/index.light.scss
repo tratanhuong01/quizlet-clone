@@ -18,6 +18,15 @@ input:focus {
     width: 100%;
     position: relative;
 
+    & .error {
+        border-color: red;
+        color: red;
+
+        &::placeholder {
+            color: red;
+        }
+    }
+
     &__container {
         width: 100%;
         position: relative;
@@ -78,9 +87,5 @@ input:focus {
         color: red;
         font-size: 1.3rem;
         font-weight: 600;
-
-        &.active {
-            margin: 0.5rem;
-        }
     }
 }

@@ -16,7 +16,24 @@
     0% {
         transform: scale(0.7);
     }
+
     100% {
         transform: scale(1);
+    }
+}
+
+#modal .modal.fadeInFlyInModal {
+    animation: fadeInFlyInModal .3s ease forwards;
+}
+
+@keyframes fadeInFlyInModal {
+    0% {
+        top: 45%;
+        visibility: hidden;
+    }
+
+    100% {
+        top: 50%;
+        visibility: visible;
     }
 }

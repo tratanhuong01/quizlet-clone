@@ -1,0 +1,17 @@
+body {
+    // --color-main: var(--color-main);
+    // --color-main-bold: var(--color-main-bold);
+
+    &.dark {
+        --color-main: var(--color-dark-main);
+        --color-main-bold: var(--color-dark-main-bold);
+
+        color: #fff;
+        background-color: var(--color-dark-main-bold);
+
+        & input {
+            background-color: var(--color-dark-main);
+        }
+    }
+
+}

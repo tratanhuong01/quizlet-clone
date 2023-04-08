@@ -1,8 +1,6 @@
 import { useEffect } from "react";
-import Login from "./pages/Login";
-import Main from "./pages/Main";
 import "./sass/app.scss";
-
+import RouteConfig from "./routes/routes";
 //
 const App = () => {
   //
@@ -13,10 +11,7 @@ const App = () => {
   }, []);
   //
   return (
-    <>
-      {/* <Main /> */}
-      <Login />
-    </>
+    <RouteConfig />
   )
 }
 

@@ -1,6 +1,7 @@
 import { ReactNode, useRef, useState } from "react"
 import { useOnClickOutside } from "usehooks-ts";
-import "./index.scss";
+import "./index.light.scss";
+import "./index.dark.scss";
 //
 type PopoverProps = {
     children?: ReactNode,

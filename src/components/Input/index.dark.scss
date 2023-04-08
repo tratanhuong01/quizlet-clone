@@ -1,0 +1,24 @@
+body.dark {
+    input {
+        border: 0.1rem solid var(--color-main-bold);
+        color: #ffffff;
+    }
+
+    .input {
+        & button {
+            background-color: var(--color-main);
+            color: #ffffff;
+        }
+
+
+        &__error {
+            color: red;
+            font-size: 1.3rem;
+            font-weight: 600;
+
+            &.active {
+                margin: 0.5rem;
+            }
+        }
+    }
+}

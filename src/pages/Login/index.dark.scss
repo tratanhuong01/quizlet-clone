@@ -1,0 +1,84 @@
+@import "../../sass/mixins.scss";
+
+body.dark {
+    & .login {
+        &__left {
+            &--text {
+                color: var(--color-dark-main);
+            }
+        }
+
+        &__right {
+            & ul {
+                &:nth-child(2) {
+                    & li {
+                        border: 0.1rem solid #cccc;
+                        margin-bottom: 1.2rem;
+                        width: 100%;
+                        @include flexCenter();
+                        gap: 1rem;
+                        padding: 2rem;
+                        cursor: pointer;
+                        background-color: #cccccc55;
+
+                        &:hover {
+                            background-color: #cccc;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__close {
+            color: #ffffff;
+        }
+
+        &__input {
+            border-bottom: 0.3rem solid black;
+        }
+
+        &__form {
+            & input {
+                background-color: transparent !important;
+                border-color: var(--color-dark-main);
+                color: #ffffff;
+
+                &:focus {
+                    border-color: #ffffff;
+
+                    &::placeholder {
+                        color: #ffffff;
+                    }
+                }
+
+            }
+
+            & .forget {
+                color: var(--color-main);
+
+                &:hover {
+                    color: var(--color-main-bold);
+                }
+            }
+
+            & button {
+                background-color: var(--color-main);
+                color: #ffffff;
+
+                &:hover {
+                    background-color: var(--color-main-bold);
+                }
+            }
+
+            &--footer {
+                & span {
+                    &:nth-child(2) {
+                        color: #ffff;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+}

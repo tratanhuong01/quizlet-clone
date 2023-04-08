@@ -1,8 +1,26 @@
+import { useState } from "react";
 import Button from "../../Button";
 import Input from "../../Input";
+import ModalFolder from "../../Modal/ModalFolder";
 import Popover from "../../Popover";
+import Login from "../../../pages/Login";
+import Modal from "../../Modal/Modal";
 
 const HeaderRight = () => {
+    //
+    const [active, setActive] = useState<Number>(-1);
+    const handleActiveModal = () => {
+        setActive(-1);
+    };
+    const ModalManager = () => {
+        return <>
+            <ModalFolder closeModal={handleActiveModal} className="modal__folder" isOpen={active === 1} closeButton />
+            <Modal closeModal={handleActiveModal} className="modal__folder" isOpen={active === 2 || active === 3} >
+                <Login closeModal={handleActiveModal} isRegister={active === 3} setActive={setActive} />
+            </Modal>
+        </>
+    }
+    //  
     return (
         <div className="header__right">
             <Input
@@ -23,7 +41,9 @@ const HeaderRight = () => {
                                 <i className="bx bx-copy"></i>
                                 <span>Học phần</span>
                             </li>
-                            <li>
+                            <li onClick={() => {
+                                setActive(1);
+                            }}>
                                 <i className="bx bx-folder"></i>
                                 <span>Thư mục</span>
                             </li>
@@ -35,13 +55,19 @@ const HeaderRight = () => {
                     </Popover>
                 </li>
                 <li>
-                    <Button type="button">Đăng nhập</Button>
+                    <Button type="button" handleClick={() => {
+                        setActive(2);
+                    }}>Đăng nhập</Button>
+
                 </li>
                 <li>
-                    <Button type="button">Đăng kí</Button>
+                    <Button type="button" handleClick={() => {
+                        setActive(3);
+                    }}>Đăng kí</Button>
                 </li>
             </ul>
-        </div>
+            <ModalManager />
+        </div >
     );
 };
 

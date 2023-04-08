@@ -1,0 +1,41 @@
+.modal {
+    &__folder {
+        padding: 4rem;
+        width: 50%;
+        background-color: #fff;
+        border-radius: 0.8rem;
+        z-index: 100;
+        border-radius: 1.6rem;
+        background-color: #ffff;
+        position: relative;
+
+        & input {
+            background-color: #f6f7fb;
+            padding: 1.2rem;
+            padding-left: 1.6rem;
+            border-radius: 0.4rem !important;
+            margin-bottom: 3rem;
+        }
+
+        &--title {
+            font-weight: 600;
+            font-size: 3.6rem;
+            padding-bottom: 3rem;
+        }
+
+        &--footer {
+            display: flex;
+            justify-content: right;
+
+            & button {
+                width: auto;
+                padding: 1.2rem 2rem;
+                color: #ffffff;
+                background-color: var(--color-main);
+                font-size: 1.6rem;
+                font-weight: 500;
+            }
+        }
+
+    }
+}

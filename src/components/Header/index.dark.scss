@@ -1,0 +1,89 @@
+@import "../../sass/mixins.scss";
+
+body.dark {
+    .header {
+        background-color: var(--color-main-bold);
+
+        &__menu {
+
+            &>li {
+
+                border-bottom: 0.4rem solid var(--color-main-bold);
+
+                &.active,
+                &:hover {
+                    border-bottom: 0.4rem solid var(--color-main);
+                }
+
+                & .sub,
+                & .child {
+                    &>li {
+
+                        &:hover,
+                        &.active {
+                            background-color: var(--color-main-bold);
+                        }
+
+
+                    }
+                }
+
+                & .sub {
+                    border-right: 0.1rem solid #cccccc38;
+                }
+
+                & .child {
+                    & .all {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+
+        &__right {
+            &--search {
+                & input {
+                    background-color: var(--color-main);
+                }
+            }
+
+            &--items {
+
+                &>li {
+                    &:nth-child(1) {
+                        & a {
+                            & i {
+                                font-size: 2.4rem;
+                                color: #ffffff;
+                            }
+
+                            background-color: var(--color-main);
+
+                            &:hover {
+                                background-color: var(--color-main-bold);
+                            }
+                        }
+
+                        & .popover>ul>li {
+
+                            &:hover {
+                                background-color: #f6f7fb;
+                            }
+                        }
+                    }
+
+
+                    &:nth-child(2) button {
+                        &:hover {
+                            background-color: #f6f7fb;
+                        }
+                    }
+
+                    &:nth-child(3) button {
+                        background-color: #ffdc62;
+                    }
+                }
+            }
+        }
+    }
+}
