@@ -2,6 +2,7 @@ import Input from "../../Input";
 import Modal from "../Modal";
 import ModalProps from "../type";
 import "./index.light.scss";
+import "./index.dark.scss";
 import "../../../pages/Login/index.dark.scss";
 import "../../../pages/Login/index.light.scss";
 import Button from "../../Button";
@@ -17,13 +18,12 @@ const schema = yup.object().shape({
 const ModalFolder = (props: ModalProps) => {
     //
     const { register, formState: { errors, isValid }, handleSubmit } = useForm({
-        resolver: yupResolver(schema)
+        resolver: yupResolver(schema),
+        mode: "onChange"
     });
     const onSubmit = (data: any) => {
         console.log(data)
     }
-    console.log(errors);
-
     //
     return (
         <Modal {...props}>

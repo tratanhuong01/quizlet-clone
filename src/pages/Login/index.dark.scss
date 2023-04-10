@@ -2,6 +2,8 @@
 
 body.dark {
     & .login {
+        background-color: var(--color-main-bold);
+
         &__left {
             &--text {
                 color: var(--color-dark-main);
@@ -38,14 +40,24 @@ body.dark {
         }
 
         &__form {
+            & .login__input.error {
+                border-bottom-color: rgb(239 68 68);
+                color: rgb(239 68 68);
+
+                &:focus {
+                    &::placeholder {
+                        color: rgb(239 68 68);
+                    }
+                }
+            }
+
             & input {
-                background-color: transparent !important;
-                border-color: var(--color-dark-main);
+                background-color: var(--color-main-bold) !important;
+                border-color: transparent;
+                border-bottom-color: #ffffff;
                 color: #ffffff;
 
                 &:focus {
-                    border-color: #ffffff;
-
                     &::placeholder {
                         color: #ffffff;
                     }

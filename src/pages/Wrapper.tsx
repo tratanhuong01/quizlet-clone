@@ -11,7 +11,7 @@ const Wrapper = ({ children }: WrapperProps) => {
   //
   //
   return (
-    <div className="main" style={{ height: "100vh" }}>
+    <div className="main">
       <Header />
       {children}
       <Footer />

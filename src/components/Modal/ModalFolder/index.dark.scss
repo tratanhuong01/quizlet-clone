@@ -1,0 +1,34 @@
+body.dark {
+    & .modal {
+        &__folder {
+            background-color: var(--color-main);
+
+            & hr {
+                display: none;
+            }
+
+            & input {
+                padding-left: 0;
+                background-color: var(--color-main);
+                border-color: transparent;
+                border-bottom-color: #fff;
+
+                &.error {
+                    color: rgb(239 68 68);
+                    border-bottom-color: rgb(239 68 68);
+
+                    &::placeholder {
+                        color: rgb(239 68 68);
+                    }
+                }
+            }
+
+            &--footer {
+                & button {
+                    background-color: var(--color-main-bold);
+                }
+            }
+
+        }
+    }
+}

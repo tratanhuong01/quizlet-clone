@@ -1,5 +1,10 @@
 a,
 button {
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
     &.button {
         background-color: #fff;
         padding: 0.8rem 1.6rem;
@@ -23,6 +28,8 @@ button {
 
 a,
 button {
+    width: auto;
+
     &.button {
         &.disabled {
             opacity: 0.5;

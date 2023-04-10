@@ -5,6 +5,8 @@ import ModalFolder from "../../Modal/ModalFolder";
 import Popover from "../../Popover";
 import Login from "../../../pages/Login";
 import Modal from "../../Modal/Modal";
+import { Link } from "react-router-dom";
+import { PAGE_CREATE_UNIT } from "../../../routes/configRoutes";
 
 const HeaderRight = () => {
     //
@@ -38,33 +40,41 @@ const HeaderRight = () => {
                     </Button>}>
                         <ul>
                             <li>
-                                <i className="bx bx-copy"></i>
-                                <span>Học phần</span>
+                                <Link to={PAGE_CREATE_UNIT}>
+                                    <i className="bx bx-copy"></i>
+                                    <span>Học phần</span>
+                                </Link>
                             </li>
                             <li onClick={() => {
                                 setActive(1);
                             }}>
-                                <i className="bx bx-folder"></i>
-                                <span>Thư mục</span>
+                                <p>
+                                    <i className="bx bx-folder"></i>
+                                    <span>Thư mục</span>
+                                </p>
                             </li>
                             <li>
-                                <i className="bx bx-group"></i>
-                                <span>Lớp</span>
+                                <p>
+                                    <i className="bx bx-group"></i>
+                                    <span>Lớp</span>
+                                </p>
                             </li>
                         </ul>
                     </Popover>
                 </li>
-                <li>
-                    <Button type="button" handleClick={() => {
-                        setActive(2);
-                    }}>Đăng nhập</Button>
+                {!localStorage.getItem("tokenQuiz") ? <>
+                    <li>
+                        <Button type="button" handleClick={() => {
+                            setActive(2);
+                        }}>Đăng nhập</Button>
 
-                </li>
-                <li>
-                    <Button type="button" handleClick={() => {
-                        setActive(3);
-                    }}>Đăng kí</Button>
-                </li>
+                    </li>
+                    <li>
+                        <Button type="button" handleClick={() => {
+                            setActive(3);
+                        }}>Đăng kí</Button>
+                    </li>
+                </> : <p>123</p>}
             </ul>
             <ModalManager />
         </div >

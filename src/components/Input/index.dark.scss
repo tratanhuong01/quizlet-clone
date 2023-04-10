@@ -1,10 +1,10 @@
 body.dark {
-    input {
+    & input {
         border: 0.1rem solid var(--color-main-bold);
         color: #ffffff;
     }
 
-    .input {
+    & .input {
         & button {
             background-color: var(--color-main);
             color: #ffffff;
@@ -12,7 +12,7 @@ body.dark {
 
 
         &__error {
-            color: red;
+            color: rgb(239 68 68);
             font-size: 1.3rem;
             font-weight: 600;
 

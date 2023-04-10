@@ -11,12 +11,14 @@ const Button = ({ link, children, type, loading, handleClick, params, className,
         link ? <Link to={link} className={`button ${className ? className : ""}`}>
             {children}
         </Link> : <button onClick={async () => {
-            setLoading(false);
+            setLoading(true);
             if (handleClick) {
                 await handleClick(params);
             }
             setLoading(false);
-        }} type={type} className={`button ${disabled ? 'disabled' : ''} ${className ? className : ""} ${transition ? transition : "transition"}`} disabled={disabled}>
+        }} type={type}
+            className={`button ${disabled ? 'disabled' : ''} ${className ? className : ""} ${transition ? transition : "transition"}`}
+            disabled={disabled || loading_}>
             {loading_ ? <i className="fa-solid fa-circle-notch rotate-360"></i> : children}
         </button>
     )

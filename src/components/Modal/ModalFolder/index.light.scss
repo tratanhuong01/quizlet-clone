@@ -6,7 +6,6 @@
         border-radius: 0.8rem;
         z-index: 100;
         border-radius: 1.6rem;
-        background-color: #ffff;
         position: relative;
 
         & input {
@@ -14,7 +13,8 @@
             padding: 1.2rem;
             padding-left: 1.6rem;
             border-radius: 0.4rem !important;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
         }
 
         &--title {

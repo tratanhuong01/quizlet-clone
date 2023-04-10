@@ -1,0 +1,162 @@
+@import "../../sass/mixins.scss";
+
+.unit {
+    &__top {
+        padding-top: 2rem;
+        padding-bottom: 3rem;
+        @include flex(center, space-between);
+
+        & p {
+            font-weight: 600;
+            font-size: 2rem;
+        }
+
+        & button {
+            width: auto;
+            background-color: var(--color-main);
+            color: #fff;
+        }
+    }
+
+    &__input {
+        width: 50%;
+        margin-left: 0;
+    }
+
+    & input {
+        background-color: transparent;
+    }
+
+    &__middle {
+        @include flex(center, space-between);
+        padding: 1rem 0rem;
+
+        &--left,
+        &--right {
+            @include flex(center, flex-start);
+        }
+
+        &--left {
+            gap: 1rem;
+
+            & button {
+                padding: 1.2rem 2rem;
+                @include flex(center, center);
+                gap: 0.8rem;
+
+                &:hover {
+                    background-color: #9f9fa0;
+                }
+            }
+        }
+
+        &--right {
+            gap: 2rem;
+
+            & li {
+                & p {
+                    font-size: 1.5rem;
+                    padding: 0.2rem 0rem;
+
+                    &:nth-child(2) {
+                        color: var(--color-main);
+                        font-weight: 600;
+                    }
+                }
+
+                &.swap,
+                &.keyboard {
+                    width: 3.6rem;
+                    color: #fff;
+                    border-radius: 100rem;
+                    height: 3.6rem;
+                    @include flex(center, center);
+                    cursor: pointer;
+                }
+
+                &.swap {
+                    background-color: #9f9fa0;
+                }
+
+                &.keyboard {
+                    background-color: var(--color-main);
+                }
+            }
+        }
+    }
+
+    &__item {
+        &:nth-child(1) {
+            margin-top: 2rem;
+        }
+
+        background-color: #fff;
+        padding: 1.6rem 0rem;
+        border-radius: 1.6rem;
+        margin-bottom: 2rem;
+
+        &--top {
+            font-weight: bold;
+            padding-left: 1.6rem;
+            padding-right: 1.6rem;
+            @include flex(center, space-between);
+            padding-bottom: 1rem;
+            border-bottom: 0.05rem solid #9f9fa06e;
+
+            &>span {
+                opacity: 0.6;
+            }
+
+            &>ul {
+                display: flex;
+                gap: 2rem;
+
+                &>li {
+                    cursor: pointer;
+                    font-size: 1.8rem;
+                }
+            }
+        }
+
+        &--bottom {
+            @include flex(center, space-between);
+            width: 100%;
+            gap: 2rem;
+            padding: 1.6rem;
+
+            &>div {
+                & input {
+                    padding-left: 0;
+                    border-color: transparent;
+                    border-width: 0.3rem;
+                    border-bottom-color: #0000008e;
+
+                    &:focus {
+                        border-bottom-color: var(--color-main);
+                    }
+                }
+
+                &:nth-child(1),
+                &:nth-child(2) {
+                    width: calc((100%/2) - 6rem);
+                }
+
+                &:nth-child(3) {
+                    flex: 1;
+                    @include flex(center, center);
+
+                    &>div {
+                        width: 8rem;
+                        height: 8rem;
+                        border: 0.1rem dashed #ccc;
+                        @include flex(center, center);
+
+                        p {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

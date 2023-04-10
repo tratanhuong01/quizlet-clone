@@ -67,7 +67,7 @@ body.dark {
                         & .popover>ul>li {
 
                             &:hover {
-                                background-color: #f6f7fb;
+                                background-color: var(--color-main-bold);
                             }
                         }
                     }

@@ -9,11 +9,16 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from "yup";
 import { REGEX_EMAIL, REGEX_USERNAME } from "../../config";
+import { useEffect, useState } from "react";
+import axios, { AxiosResponse } from "axios";
+import { Navigate, useNavigate } from "react-router-dom";
+import { PAGE_MAIN } from "../../routes/configRoutes";
 //
 const schemaRegister = yup.object().shape({
-    email: yup.string().required("Email không được để trống!").email("Email không hợp lệ!").matches(/^[a-zA-Z0-9]+$/),
+    email: yup.string().required("Email không được để trống!").email("Email không hợp lệ!"),
     username: yup.string().required("Tên đăng nhập không được để trống!").matches(/^[a-zA-Z0-9]+$/, "Tên đăng nhập không hợp lệ!"),
     password: yup.string().required("Password không được để trống!").min(6, 'Mật khẩu phải hơn 6 kí tự!'),
+    isAgree: yup.boolean().oneOf([true], "Bạn phải đồng ý với điều khoản của quizlet!").default(false)
 }).required();
 const schemaLogin = yup.object().shape({
     emailOrUsername: yup.string().required("Email/Tên đăng nhập không được để trống!")
@@ -32,9 +37,25 @@ const Login = ({ closeModal, isRegister, setActive }: LoginProps) => {
         resolver: yupResolver(isRegister ? schemaRegister : schemaLogin),
         mode: 'onChange',
     });
-    const onSubmit = (data: any) => {
-        console.log(data)
+    const navigate = useNavigate();
+    useEffect(() => {
+
+    }, [isRegister]);
+    const onSubmit = async (data: any) => {
+        await axios.post(`http://192.168.1.37:8080/${isRegister ? 'registration' : 'login'}`, {
+            ...data, username: data.emailOrUsername
+        }).then((res: AxiosResponse) => {
+            if (isRegister) {
+                setActive(2);
+            }
+            else {
+                localStorage.setItem("tokenQuiz", res.data);
+                navigate(PAGE_MAIN);
+                closeModal();
+            }
+        });
     }
+
     //
     return (
         <div className="login">
@@ -79,8 +100,9 @@ const Login = ({ closeModal, isRegister, setActive }: LoginProps) => {
                 </ul>
                 <p style={{ textAlign: "center", margin: "4rem 0rem", fontSize: "1.3rem", fontWeight: "700", opacity: 0.8 }}>HOẶC EMAIL</p>
                 <form onSubmit={handleSubmit(onSubmit)} className="login__form">
-                    <label htmlFor="">EMAIL</label>
-                    <Input type="text" name="emailOrUsername" className="login__input" placeholder="Nhập email của bạn" register={register} errors={errors} />
+                    <label htmlFor="">{isRegister ? "EMAIL" : "EMAIL/TÊN ĐĂNG NHẬP"}</label>
+                    <Input type="text" name={isRegister ? "email" : "emailOrUsername"} className="login__input"
+                        placeholder={isRegister ? "Nhập email của bạn" : "Nhập email/tên đăng nhập của bạn"} register={register} errors={errors} />
                     {isRegister && <>
                         <label htmlFor="">TÊN NGƯỜI DÙNG</label>
                         <Input type="text" name="username" className="login__input" placeholder="Nhập tên người dùng của bạn" register={register} errors={errors} />
@@ -88,7 +110,7 @@ const Login = ({ closeModal, isRegister, setActive }: LoginProps) => {
                     <label htmlFor="">MẬT KHẨU</label>
                     <Input type="password" name="password" className="login__input" placeholder="Nhập mật khẩu" register={register} errors={errors} />
                     {isRegister ? <div className="login__agree">
-                        <Input type="checkbox" name="isAgree" register={register} />
+                        <Input type="checkbox" name="isAgree" register={register} errors={errors} />
                         <div className="agree">
                             <p>Tôi chấp nhận
                                 <b> Điều khoản dịch vụ </b>
@@ -105,7 +127,8 @@ const Login = ({ closeModal, isRegister, setActive }: LoginProps) => {
                             <b> Chính sách quyền riêng tư </b>
                             của Quizlet.</p>
                     </>}
-                    <Button type="submit" disabled={!isValid}>{isRegister ? 'Đăng kí' : 'Đăng nhập'}</Button>
+                    <Button loading={false} type="submit"
+                        disabled={!isValid}>{isRegister ? 'Đăng kí' : 'Đăng nhập'}</Button>
                     {!isRegister && <div className="login__form--footer">
                         <span>Hãy nhớ đăng xuất trên thiết bị dùng chung</span>
                         <span>Sử dụng liên kết nhanh</span>

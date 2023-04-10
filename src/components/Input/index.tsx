@@ -8,14 +8,12 @@ const Input = ({ type, className, classNameParent, styleParent, style, placehold
     //
     const [typeState, setTypeState] = useState(type);
     const [loading, setLoading] = useState<boolean>(false);
-    const [value, setValue] = useState(defaultValue);
+    const [value, setValue] = useState<any>(defaultValue);
     const [showClearText, setShowClearText] = useState(false);
     const refInputParent = useRef(null);
     useOnClickOutside(refInputParent, () => {
         setShowClearText(false);
     });
-    console.log(name, errors);
-
     //
     return (
         <div className={classNameParent ? classNameParent : ""} style={styleParent ? styleParent : {}}>
@@ -28,14 +26,16 @@ const Input = ({ type, className, classNameParent, styleParent, style, placehold
                         className={`${className || ''} ${errors && (errors[name] ? 'error' : '')}`}
                         style={style}
                         placeholder={placeholder}
-                        // defaultValue={defaultValue}
+                        defaultValue={defaultValue}
                         name={name}
                         spellCheck={false}
                         disabled={loading}
                         onChange={(e) => {
-                            setValue(e.target.value);
-                            setShowClearText(e.target.value.length > 0);
-                            register(name, { required: true }).onChange(e)
+                            setValue(typeState !== "checkbox" ? e.target.value : e.target.checked);
+                            if (typeState !== "checkbox") {
+                                setShowClearText(e.target.value.length > 0);
+                                register(name, { required: true }).onChange(e)
+                            }
                         }}
                         onClick={() => {
                             if (!clearText) return;
